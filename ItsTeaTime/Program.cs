@@ -7,7 +7,7 @@ namespace ItsTeaTime
 {
     internal class Program
     {
-        private const int FiveMinutesInMilliseconds = 5 * 60 * 1000;
+        private const int FiveMinutesInMilliseconds = 1 * 60 * 1000;
 
         static void Main(string[] args)
         {
@@ -28,6 +28,10 @@ namespace ItsTeaTime
             synth.Speak("This is tea time!");
 
             Console.Beep();
+
+            RepeatReminderAfterDelay();
+
+            Console.ReadLine();          
         }
 
         private static string GetTimeOfDay()
@@ -53,6 +57,15 @@ namespace ItsTeaTime
             
         }
 
+        private async static Task RepeatReminderAfterDelay()
+        {
+            var delayTask = Task.Delay(60 * 1000);
 
+            await delayTask;
+
+            var synth = new SpeechSynthesizer();
+            synth.SetOutputToDefaultAudioDevice();
+            synth.Speak("Your tea is getting colder, sir!");
+        }
     }
 }
