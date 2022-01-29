@@ -39,7 +39,7 @@ namespace ItsTeaTime
                 return "this morning";
             }
 
-            if(currentHour >= 12 && < 19)
+            if(currentHour >= 12 && currentHour < 19)
             {
                 return "today";
             }
