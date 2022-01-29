@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Speech.Synthesis;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ItsTeaTime
 {
@@ -11,17 +12,16 @@ namespace ItsTeaTime
         static void Main(string[] args)
         {
             Console.WriteLine($"I'm glad you decided to take some tea {GetTimeOfDay()}!");
-            Thread.Sleep(FiveMinutesInMilliseconds);
-            
-            
+            Task.Delay(FiveMinutesInMilliseconds).Wait();
+                        
             Console.Beep();
-            Thread.Sleep(500);
+            Task.Delay(500).Wait();
 
             Console.Beep();
-            Thread.Sleep(500);
+            Task.Delay(500).Wait();
 
             Console.Beep();
-            Thread.Sleep(500);
+            Task.Delay(500).Wait();
 
             var synth = new SpeechSynthesizer();
             synth.SetOutputToDefaultAudioDevice();
@@ -52,5 +52,7 @@ namespace ItsTeaTime
             return "tonight";
             
         }
+
+
     }
 }
