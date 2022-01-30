@@ -7,7 +7,7 @@ namespace ItsTeaTime
 {
     internal class Program
     {
-        private const int FiveMinutesInMilliseconds = 1 * 60 * 1000;
+        private const int FiveMinutesInMilliseconds = 5 * 60 * 1000;
 
         static void Main(string[] args)
         {
